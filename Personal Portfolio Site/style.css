@@ -1,0 +1,266 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* CSS Variables */
+
+:root{
+    --ff-primary: 'Montserrat', sans-serif;
+    --ff-secondary: 'Roboto', sans-serif;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-dark: #0a192f;
+    --clr-light: #ccd6f6;
+    --clr-accent: #64b1ff;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: .25em .25em .75em rgba(2,12,27,.7), 0.125em 0.125em .25em rgba(2,12,27,.3);
+}
+
+@media (min-width: 800px) {
+    :root{
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+
+
+/* General Styles */
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.5;;
+}
+
+section{
+    padding: 5em 2em;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+strong {
+    font-weight: var(--fw-bold);
+}
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.btn{
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform .2s ease-in-out;
+    margin-bottom: 3em;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+/* Typography */
+
+h1, h2, h3 {
+    margin: 0;
+    line-height: 1;
+}
+h1 {
+    font-size: var(--fs-h1);
+}
+h2 {
+    font-size: var(--fs-h2);
+}
+h3 {
+    font-size: var(--fs-h3);
+}
+
+.section_title {
+    margin-bottom: .25em;
+    font-family: var(--ff-secondary);
+}
+
+.section_title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section_title--intro strong {
+    display: block;
+}
+
+.section_subtitle{
+    margin: 0;
+    font-size: var(--fs-h3);
+    background: var(--clr-accent);
+    margin-bottom: 1em;
+    padding: .25em 1em;
+}
+
+/* Intro */
+
+.intro{
+    position: relative;
+}
+.intro_img{
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .intro{
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro_img{
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section_subtitle{
+        align-self: start;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+
+/* About Me */
+
+.about-me{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about_img{
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .about-me{
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        grid-template-areas: 
+            "title img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section_title--about{
+        grid-area: title;
+    }
+
+    .about_img{
+        grid-area: img;
+    }
+}
+
+/* Projects */
+
+.projects{
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section_title--projects::after{
+    content: "";
+    display: block;
+    width: 25%;
+    height: 3px;
+    background: var(--clr-accent);
+    margin: .5em auto 1em;
+}
+
+.project_title::after{
+    content: "";
+    display: block;
+    width: 15%;
+    height: 3px;
+    background: var(--clr-accent);
+    margin: .5em auto 1em;
+}
+
+
+.about_img{
+    grid-area: img;
+}
+
+
+/* Footer */
+
+.footer{
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0em;
+    font-size: var(--fs-h3);
+}
+
+.footer_link{
+    font-weight: var(--fw-bold);
+}
+
+.footer a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer_link:hover,
+.social-list_link:hover{
+    opacity: .75;
+}
+
+.footer_link:hover{
+    text-decoration: underline;
+}
+
+.social-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list_item{
+    margin: 0 1em;
+}
+.social-list_link{
+    padding: .5em;
+}
